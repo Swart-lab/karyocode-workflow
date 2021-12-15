@@ -7,20 +7,22 @@ set -e
 # Specify additional parameters (e.g. --dryrun) and rule names 
 # after invoking this script 
 
-SNAKEMAKE_ENV=
-WD=
+SNAKEMAKE_ENV=/ebio/abt2_projects/ag-swart-karyocode/envs/snakemake
+WD=/ebio/abt2_projects/ag-swart-karyocode
 
 source activate $SNAKEMAKE_ENV
+
+cd $WD
 
 # Use snakemake_sge.sh to run on cluster
 # submit 16 jobs at a time
 snakemake_sge.sh \
-$WD/workflow/config.yaml \
-$WD/workflow/cluster.json \
+workflow/config.yaml \
+workflow/cluster.json \
 logs_SGE \
 16 \
 --use-conda \
 --conda-frontend mamba \
 --printshellcmds \
---conda-prefix $WD/envs \
--s $WD/workflow/Snakefile $@
+--conda-prefix envs \
+-s workflow/Snakefile $@

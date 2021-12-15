@@ -11,17 +11,18 @@ set -e
 #  * Conda environments will be placed in a subfolder `envs/`
 
 # PATHS
-SNAKEMAKE_ENV=
-WD=
+SNAKEMAKE_ENV=/ebio/abt2_projects/ag-swart-karyocode/envs/snakemake
+WD=/ebio/abt2_projects/ag-swart-karyocode
 
+cd $WD
 # activate snakemake conda environment
 source activate $SNAKEMAKE_ENV
 
 snakemake \
---cores 24 \
---configfile $WD/workflow/config.yaml \
+--cores 48 \
+--configfile workflow/config.yaml \
 --use-conda \
 --conda-frontend mamba \
 --printshellcmds \
---conda-prefix $WD/envs \
--s $WD/workflow/Snakefile $@
+--conda-prefix envs \
+-s workflow/Snakefile $@

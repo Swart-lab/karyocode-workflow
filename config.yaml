@@ -1,8 +1,37 @@
-# EXAMPLE: Paths to raw data
-rawdata:
-  sample_A: example/data_A
-  sample_B: example/data_B
-
-samplenames:
-  - sample_A
-  - sample_B
+rnaseq:
+  N72:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN72_RunId008_LaneId1/N72_S13_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN72_RunId008_LaneId1/N72_S13_R2_001.fastq.gz
+  N70:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN70_RunId008_LaneId1/N70_S12_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN70_RunId008_LaneId1/N70_S12_R2_001.fastq.gz
+  N44:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN44_RunId008_LaneId1/N44_S11_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN44_RunId008_LaneId1/N44_S11_R2_001.fastq.gz
+  N39:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN39_RunId008_LaneId1/N39_S10_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN39_RunId008_LaneId1/N39_S10_R2_001.fastq.gz
+  N38:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN38_RunId008_LaneId1/N38_S9_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN38_RunId008_LaneId1/N38_S9_R2_001.fastq.gz
+  N34:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN34_RunId008_LaneId1/N34_S8_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN34_RunId008_LaneId1/N34_S8_R2_001.fastq.gz
+  N27:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN27_RunId008_LaneId1/N27_S7_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN27_RunId008_LaneId1/N27_S7_R2_001.fastq.gz
+  N26:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN26_RunId008_LaneId1/N26_S6_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN26_RunId008_LaneId1/N26_S6_R2_001.fastq.gz
+  N10:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN10_RunId008_LaneId1/N10_S5_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN10_RunId008_LaneId1/N10_S5_R2_001.fastq.gz
+  N6:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN6_RunId008_LaneId1/N6_S4_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN6_RunId008_LaneId1/N6_S4_R2_001.fastq.gz
+  N5:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN5_RunId008_LaneId1/N5_S3_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN5_RunId008_LaneId1/N5_S3_R2_001.fastq.gz
+  N4:
+    fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN4_RunId008_LaneId1/N4_S2_R1_001.fastq.gz
+    rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN4_RunId008_LaneId1/N4_S2_R2_001.fastq.gz
