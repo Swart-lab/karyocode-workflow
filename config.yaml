@@ -35,3 +35,32 @@ rnaseq:
   N4:
     fwd: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN4_RunId008_LaneId1/N4_S2_R1_001.fastq.gz
     rev: /ebio/abt6_sra/years/2021/12_14/karyocode_rnaseq/illumina_VH00745_flowcellAAAJJJCHV_SampleIdN4_RunId008_LaneId1/N4_S2_R2_001.fastq.gz
+  lstr_yy:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512997_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512997_2.fastq.gz
+  rema_yy:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512996_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512996_2.fastq.gz
+  bame_yy:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512973_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512973_2.fastq.gz
+  anig_yy:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512978_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512978_2.fastq.gz
+  trac_yy:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512994_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512994_2.fastq.gz
+  gsin_yy:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513005_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513005_2.fastq.gz
+  sroe_yy:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513009_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513009_2.fastq.gz
+  gacu_yy:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513007_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513007_2.fastq.gz
+  lx13_yy:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512999_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512999_2.fastq.gz
+
+pfam_db: /ebio/abt2_projects/ag-swart-loxodes/db/pfam/Pfam-A.hmm
