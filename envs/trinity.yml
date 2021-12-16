@@ -1,0 +1,8 @@
+channels:
+  - bioconda
+  - r
+  - conda-forge
+  - defaults
+dependencies:
+  - trinity=2.12.0
+  - salmon

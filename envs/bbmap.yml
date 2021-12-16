@@ -1,0 +1,10 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bbmap=38.22=h470a237_0
+  - libgcc-ng=7.2.0=hdf63c60_3
+  - openjdk=11.0.1=h470a237_14
+  - pigz=2.3.4=0
+  - zlib=1.2.11=h470a237_4
