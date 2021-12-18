@@ -63,4 +63,15 @@ rnaseq:
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512999_1.fastq.gz
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512999_2.fastq.gz
 
+mda:
+  A19:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A19_S88_R1_001.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A19_S88_R2_001.fastq.gz
+  A25:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A25_S89_R1_001.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A25_S89_R2_001.fastq.gz
+  A31:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A31_S90_R1_001.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A31_S90_R2_001.fastq.gz
+
 pfam_db: /ebio/abt2_projects/ag-swart-loxodes/db/pfam/Pfam-A.hmm

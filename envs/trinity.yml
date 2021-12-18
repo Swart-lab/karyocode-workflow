@@ -6,3 +6,4 @@ channels:
 dependencies:
   - trinity=2.12.0
   - salmon
+  - blast=2.12.0
