@@ -5,7 +5,7 @@ PHYLOFLASH_DBHOME="/ebio/abt2_projects/ag-swart-loxodes/db/phyloFlash/132"
 
 rule all:
     input:
-        expand("qc/phyloFlash/{lib}_rnaseq.phyloFlash.tar.gz", lib=config['rnaseq']),
+        expand("qc/phyloFlash/{lib}_rnaseq_{readlim}.phyloFlash.tar.gz", lib=config['rnaseq'], readlim=[1000000,300000]),
         expand("qc/phyloFlash/{lib}_dnaseq.phyloFlash.tar.gz", lib=config['mda']),
         expand("assembly/trinity.{lib}.Trinity.fasta", lib=config['rnaseq']),
         expand("qc/trinity_assem/trinity.{lib}.v.{dbprefix}.blastx.out6.w_pct_hit_length", lib=config['rnaseq'], dbprefix='uniprot_sprot')
@@ -15,15 +15,15 @@ rule phyloflash_rnaseq:
         fwd=lambda wildcards: config['rnaseq'][wildcards.lib]['fwd'],
         rev=lambda wildcards: config['rnaseq'][wildcards.lib]['rev']
     output:
-        "qc/phyloFlash/{lib}_rnaseq.phyloFlash.tar.gz"
+        "qc/phyloFlash/{lib}_rnaseq_{readlim}.phyloFlash.tar.gz"
     conda: "envs/phyloflash.yml"
     threads: 16
-    log: "logs/phyloflash_rnaseq.{lib}.log"
+    log: "logs/phyloflash_rnaseq.{lib}.{readlim}.log"
     params:
         db=PHYLOFLASH_DBHOME
     shell:
         # Use -readlimit 1000000 for transcriptome libraries
-        "phyloFlash.pl -lib {wildcards.lib}_rnaseq -readlength 150 -readlimit 1000000 -read1 {input.fwd} -read2 {input.rev} -CPUs {threads} -almosteverything -dbhome {params.db} 2> {log};"
+        "phyloFlash.pl -lib {wildcards.lib}_rnaseq_{wildcards.readlim} -readlength 150 -readlimit {wildcards.readlim} -read1 {input.fwd} -read2 {input.rev} -CPUs {threads} -almosteverything -dbhome {params.db} 2> {log};"
         "mv {wildcards.lib}_rnaseq.phyloFlash* qc/phyloFlash/;"
 
 rule phyloflash_dnaseq:
