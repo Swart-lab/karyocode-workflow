@@ -24,7 +24,7 @@ rule phyloflash_rnaseq:
     shell:
         # Use -readlimit 1000000 for transcriptome libraries
         "phyloFlash.pl -lib {wildcards.lib}_rnaseq_{wildcards.readlim} -readlength 150 -readlimit {wildcards.readlim} -read1 {input.fwd} -read2 {input.rev} -CPUs {threads} -almosteverything -dbhome {params.db} 2> {log};"
-        "mv {wildcards.lib}_rnaseq.phyloFlash* qc/phyloFlash/;"
+        "mv {wildcards.lib}_rnaseq_{wildcards.readlim}.phyloFlash* qc/phyloFlash/;"
 
 rule phyloflash_dnaseq:
     input:
