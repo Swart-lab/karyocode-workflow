@@ -8,7 +8,7 @@ rule all:
         expand("qc/phyloFlash/{lib}_rnaseq_{readlim}.phyloFlash.tar.gz", lib=config['rnaseq'], readlim=[1000000,300000]),
         expand("qc/phyloFlash/{lib}_dnaseq.phyloFlash.tar.gz", lib=config['mda']),
         expand("assembly/trinity.{lib}.Trinity.fasta", lib=config['rnaseq']),
-        expand("qc/trinity_assem/trinity.{lib}.v.{dbprefix}.blastx.out6.w_pct_hit_length", lib=config['rnaseq'], dbprefix='uniprot_sprot')
+        expand("qc/trinity_assem/trinity.{lib}.v.{dbprefix}.blastx.out6.w_pct_hit_length", lib=config['rnaseq'], dbprefix=['uniprot_sprot','bsto_mac'])
 
 rule phyloflash_rnaseq:
     input:
@@ -96,5 +96,5 @@ rule trinity_fulllength_qc:
     params:
         db_prefix="db/{dbprefix}"
     shell:
-        "blastx -query {input.assem} -db {params.db_prefix} -out {output.blastx} -num_threads {threads} -evalue 1e-20 -max_target_seqs 1 -outfmt 6;"
+        "cat {input.assem} | parallel --gnu -j {threads} --recstart '>' -N 100 --pipe blastx -query - -db {params.db_prefix} -evalue 1e-20 -max_target_seqs 1 -outfmt 6 > {output.blastx};"
         "analyze_blastPlus_topHit_coverage.pl {output.blastx} {input.assem} {input.db} &> {log};"
