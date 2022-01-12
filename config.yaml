@@ -62,6 +62,33 @@ rnaseq:
   lx13_yy:
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512999_1.fastq.gz
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512999_2.fastq.gz
+  bame2_yy: # Blepharisma americanum
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512974_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512974_2.fastq.gz
+  tc01_yy: # Trachelocerca sp. Sr_ci_Tc01
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512995_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512995_2.fastq.gz
+  lstr2_yy: # Loxodes striatus
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512998_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512998_2.fastq.gz
+  lx11_yy: # Loxodes sp. Sr_ci_Lx11
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513001_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513001_2.fastq.gz
+  # lx05_yy: # Loxodes sp. Sr_ci_Lx05
+  #   fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513002_1.fastq.gz
+  #   rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513002_2.fastq.gz
+  kn01_yy: # Kentrophoros sp. Sr_ci_Kn01
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513003_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513003_2.fastq.gz
+  gl04_yy: # Geleia sp. Sr_ci_Gl04
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513004_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513004_2.fastq.gz
+  gsin2_yy: # Geleia sinica
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513006_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513006_2.fastq.gz
+  cx01_yy: # Cryptopharynx sp. Sr_ci_Cx01
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513008_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513008_2.fastq.gz
 
 mda:
   A19:
@@ -75,3 +102,4 @@ mda:
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A31_S90_R2_001.fastq.gz
 
 pfam_db: /ebio/abt2_projects/ag-swart-loxodes/db/pfam/Pfam-A.hmm
+
