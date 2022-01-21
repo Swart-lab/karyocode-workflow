@@ -5,7 +5,9 @@ PHYLOFLASH_DBHOME="/ebio/abt2_projects/ag-swart-loxodes/db/phyloFlash/132"
 
 rule all:
     input:
-        expand("qc/phyloFlash/{lib}_rnaseq_{readlim}.phyloFlash.tar.gz", lib=[i for i in config['rnaseq'] if i != 'kn01_yy'], readlim=[1000000,5000000]), # skip library kn01_yy because rRNA cov too high
+        expand(
+            "qc/phyloFlash/{lib}_rnaseq_{readlim}.phyloFlash.tar.gz",
+            lib=[i for i in config['rnaseq'] if i not in ['kn01_yy','cmag_mm','pard_mm']], readlim=[1000000]), # skip library kn01_yy because rRNA cov too high
         expand("qc/phyloFlash/{lib}_dnaseq.phyloFlash.tar.gz", lib=config['mda']),
         expand("assembly/trinity.{lib}.Trinity.fasta", lib=config['rnaseq']),
         expand("qc/trinity_assem/trinity.{lib}.v.{dbprefix}.blastx.out6.w_pct_hit_length", lib=config['rnaseq'], dbprefix=['uniprot_sprot','bsto_mac'])

@@ -89,6 +89,29 @@ rnaseq:
   cx01_yy: # Cryptopharynx sp. Sr_ci_Cx01
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513008_1.fastq.gz
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513008_2.fastq.gz
+  # MMETSP
+  cmag_mm: # Condylostoma magnum
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1296902_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1296902_2.fastq.gz
+  pard_mm: # Parduczia sp.
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1300374_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1300374_2.fastq.gz
+  # Kentrophoros metatranscriptomes
+  sa331_kh:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentH_sa331_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentH_sa331_2.fastq.gz
+  sa332_kh:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentH_sa332_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentH_sa332_2.fastq.gz
+  s4110_ksd:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4110_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4110_2.fastq.gz
+  s4111_ksd:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4111_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4111_2.fastq.gz
+  s4112_ksd:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4112_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4112_2.fastq.gz
 
 mda:
   A19:
@@ -101,5 +124,6 @@ mda:
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A31_S90_R1_001.fastq.gz
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A31_S90_R2_001.fastq.gz
 
+# Pfam-A v32
 pfam_db: /ebio/abt2_projects/ag-swart-loxodes/db/pfam/Pfam-A.hmm
 
