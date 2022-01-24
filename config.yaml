@@ -113,6 +113,9 @@ rnaseq:
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4112_1.fastq.gz
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4112_2.fastq.gz
 
+rnaseq_bam: # mapped RNAseq reads for genome-guided assembly, already sorted & indexed
+  bsto: /ebio/abt2_projects/ag-swart-blepharisma-raw/production/B_stoltei_ATCC/MAC/rna-seq/Bsto_ATCC_MAC_cleaned_plus_cruft.merged.bam
+
 mda:
   A19:
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/mda/A19_S88_R1_001.fastq.gz

@@ -21,3 +21,13 @@ Data
  * Single cell MDA DNAseq from above
  * Published datasets downloaded from SRA
 
+
+Data deposition
+---------------
+
+KIV which data to deposit:
+
+ * Primary read data
+ * Snakemake pipeline
+ * Trinity assemblies (?)
+ * Analysis notebooks and outputs
