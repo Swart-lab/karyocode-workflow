@@ -96,6 +96,9 @@ rnaseq:
   pard_mm: # Parduczia sp.
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1300374_1.fastq.gz
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1300374_2.fastq.gz
+  bjap_mm: # Blepharisma japonicum
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1294460_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1294460_2.fastq.gz
   # Kentrophoros metatranscriptomes
   sa331_kh:
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentH_sa331_1.fastq.gz
@@ -112,9 +115,19 @@ rnaseq:
   s4112_ksd:
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4112_1.fastq.gz
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentSD_s4112_2.fastq.gz
+  # Stentor polymorphus
+  spol_upp:
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR6714474_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR6714474_2.fastq.gz
+
 
 rnaseq_bam: # mapped RNAseq reads for genome-guided assembly, already sorted & indexed
   bsto: /ebio/abt2_projects/ag-swart-blepharisma-raw/production/B_stoltei_ATCC/MAC/rna-seq/Bsto_ATCC_MAC_cleaned_plus_cruft.merged.bam
+
+
+rnaseq_se: # single-ended RNAseq sequencing
+  # scoe: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR5043309.fastq.gz
+  bsp_mk : /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1614987.fastq.gz
 
 mda:
   A19:

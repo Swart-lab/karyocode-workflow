@@ -7,11 +7,12 @@ rule all:
     input:
         expand(
             "qc/phyloFlash/{lib}_rnaseq_{readlim}.phyloFlash.tar.gz",
-            lib=[i for i in config['rnaseq'] if i not in ['kn01_yy','cmag_mm','pard_mm']], readlim=[1000000]), # skip library kn01_yy because rRNA cov too high
+            lib=[i for i in config['rnaseq'] if i not in ['kn01_yy','cmag_mm','pard_mm','bjap_mm']], readlim=[1000000]), # skip libraries where SPAdes step fails
         expand("qc/phyloFlash/{lib}_dnaseq.phyloFlash.tar.gz", lib=config['mda']),
         expand("assembly/trinity.{lib}.Trinity.fasta", lib=config['rnaseq']),
         expand("qc/trinity_assem/trinity.{lib}.v.{dbprefix}.blastx.out6.w_pct_hit_length", lib=config['rnaseq'], dbprefix=['uniprot_sprot','bsto_mac']),
-        "assembly/trinity_gg.bsto.Trinity-GG.fasta"
+        "assembly/trinity_gg.bsto.Trinity-GG.fasta", # genome-guided assembly
+        "assembly/trinity_se.bsp_mk.Trinity.fasta",    # single-end read library
 
 rule phyloflash_rnaseq:
     input:
@@ -28,6 +29,21 @@ rule phyloflash_rnaseq:
         # Use -readlimit 1000000 for transcriptome libraries
         "phyloFlash.pl -lib {wildcards.lib}_rnaseq_{wildcards.readlim} -readlength 150 -readlimit {wildcards.readlim} -read1 {input.fwd} -read2 {input.rev} -CPUs {threads} -almosteverything -dbhome {params.db} 2> {log};"
         "mv {wildcards.lib}_rnaseq_{wildcards.readlim}.phyloFlash* qc/phyloFlash/;"
+
+rule phyloflash_rnaseq_se:
+    input:
+        lambda wildcards: config['rnaseq_se'][wildcards.lib]
+    output:
+        "qc/phyloFlash/{lib}_rnaseq_se_{readlim}.phyloFlash.tar.gz"
+    conda: "envs/phyloflash.yml"
+    threads: 16
+    log: "logs/phyloflash_rnaseq_se.{lib}.{readlim}.log"
+    params:
+        db=PHYLOFLASH_DBHOME
+    shell:
+        # Use -readlimit 1000000 for transcriptome libraries
+        "phyloFlash.pl -lib {wildcards.lib}_rnaseq_se_{wildcards.readlim} -readlength 100 -readlimit {wildcards.readlim} -read1 {input} -CPUs {threads} -almosteverything -dbhome {params.db} 2> {log};"
+        "mv {wildcards.lib}_rnaseq_se_{wildcards.readlim}.phyloFlash* qc/phyloFlash/;"
 
 rule phyloflash_dnaseq:
     input:
@@ -104,28 +120,28 @@ rule trinity_fulllength_qc:
         "analyze_blastPlus_topHit_coverage.pl {output.blastx} {input.assem} {input.db} &> {log};"
 
 
-# rule trim_reads_rnaseq_se: # Single-end sequencing
-#     input:
-#         lambda wildcards: config['rnaseq_se'][wildcards.lib]
-#     output:
-#         "data/reads_trim/{lib}.trim.q24.U.fastq.gz"
-#     threads: 8
-#     log: "logs/trim_reads_se.{lib}.log"
-#     conda: "envs/bbmap.yml"
-#     shell:
-#         "bbduk.sh -Xmx10g threads={threads} ref=resources/adapters.fa,resources/phix174_ill.ref.fa.gz in={input} ktrim=r qtrim=rl trimq=24 minlength=25 out={output} 2> {log}"
+rule trim_reads_rnaseq_se: # Single-end sequencing
+    input:
+        lambda wildcards: config['rnaseq_se'][wildcards.lib]
+    output:
+        "data/reads_trim/{lib}.trim.q24.U.fastq.gz"
+    threads: 8
+    log: "logs/trim_reads_se.{lib}.log"
+    conda: "envs/bbmap.yml"
+    shell:
+        "bbduk.sh -Xmx10g threads={threads} ref=resources/adapters.fa,resources/phix174_ill.ref.fa.gz in={input} ktrim=r qtrim=rl trimq=24 minlength=25 out={output} 2> {log}"
 
-# rule trinity_se:
-#     input:
-#         "data/reads_trim/{lib}.trim.q24.U.fastq.gz"
-#     output: "assembly/trinity.{lib}.Trinity.fasta"
-#     conda: "envs/trinity.yml"
-#     threads: 24
-#     params:
-#         prefix="assembly/trinity.{lib}"
-#     log: "logs/trinity_se.{lib}.log"
-#     shell:
-#         "Trinity --seqType fq --max_memory 64G --bflyHeapSpaceMax 40G --CPU {threads} --full_cleanup --single {input} --output {params.prefix} &> {log};"
+rule trinity_se:
+    input:
+        "data/reads_trim/{lib}.trim.q24.U.fastq.gz"
+    output: "assembly/trinity_se.{lib}.Trinity.fasta"
+    conda: "envs/trinity.yml"
+    threads: 24
+    params:
+        prefix="assembly/trinity_se.{lib}"
+    log: "logs/trinity_se.{lib}.log"
+    shell:
+        "Trinity --seqType fq --max_memory 64G --bflyHeapSpaceMax 40G --CPU {threads} --full_cleanup --single {input} --output {params.prefix} &> {log};"
 
 rule trinity_gg:
     # Genome guided assembly from mapping file
@@ -138,7 +154,8 @@ rule trinity_gg:
         prefix="assembly/trinity_gg.{lib}"
     log: "logs/trinity_gg.{lib}.log"
     shell:
-        "Trinity --genome_guided_bam {input} --genome_guided_max_intron 50 --max_memory 64G --CPU {threads} --bflyHeapSpaceMax 40G --output {params.prefix} --full_cleanup &> {log};"
+        # jaccard clip option for gene-dense genomes - without this option, we have about 1/3 of contigs with poly-A on both ends
+        "Trinity --genome_guided_bam {input} --genome_guided_max_intron 50 --max_memory 64G --CPU {threads} --bflyHeapSpaceMax 40G --output {params.prefix} --jaccard_clip --full_cleanup &> {log};"
         "mv {params.prefix}/Trinity-GG.fasta {output};" # manual cleanup because --full_cleanup doesn't work with genome guided mode
         "mv {params.prefix}/Trinity-GG.fasta.gene_trans_map {output}.gene_trans_map;"
         # "rm -r {prefix}/;"
