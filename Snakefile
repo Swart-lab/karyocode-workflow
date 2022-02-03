@@ -8,11 +8,14 @@ rule all:
         expand(
             "qc/phyloFlash/{lib}_rnaseq_{readlim}.phyloFlash.tar.gz",
             lib=[i for i in config['rnaseq'] if i not in ['kn01_yy','cmag_mm','pard_mm','bjap_mm']], readlim=[1000000]), # skip libraries where SPAdes step fails
+        expand("qc/phyloFlash/{lib}_rnaseq_maponly_1000000.phyloFlash.tar.gz", lib=config['rnaseq']),
+        expand("qc/phyloFlash/{lib}_rnaseq_se_maponly_1000000.phyloFlash.tar.gz", lib=config['rnaseq_se']),
         expand("qc/phyloFlash/{lib}_dnaseq.phyloFlash.tar.gz", lib=config['mda']),
         expand("assembly/trinity.{lib}.Trinity.fasta", lib=config['rnaseq']),
         expand("qc/trinity_assem/trinity.{lib}.v.{dbprefix}.blastx.out6.w_pct_hit_length", lib=config['rnaseq'], dbprefix=['uniprot_sprot','bsto_mac']),
         "assembly/trinity_gg.bsto.Trinity-GG.fasta", # genome-guided assembly
         "assembly/trinity_se.bsp_mk.Trinity.fasta",    # single-end read library
+        "qc/trinity_assem/trinity_se.bsp_mk.v.bsto_mac.blastx.out6.w_pct_hit_length",    # single-end read library
 
 rule phyloflash_rnaseq:
     input:
@@ -23,6 +26,7 @@ rule phyloflash_rnaseq:
     conda: "envs/phyloflash.yml"
     threads: 16
     log: "logs/phyloflash_rnaseq.{lib}.{readlim}.log"
+    wildcard_constraints: readlim="\d+"
     params:
         db=PHYLOFLASH_DBHOME
     shell:
@@ -37,13 +41,48 @@ rule phyloflash_rnaseq_se:
         "qc/phyloFlash/{lib}_rnaseq_se_{readlim}.phyloFlash.tar.gz"
     conda: "envs/phyloflash.yml"
     threads: 16
+    wildcard_constraints: readlim="\d+"
     log: "logs/phyloflash_rnaseq_se.{lib}.{readlim}.log"
     params:
         db=PHYLOFLASH_DBHOME
     shell:
+        # Do not run -poscov for SE libraries
         # Use -readlimit 1000000 for transcriptome libraries
-        "phyloFlash.pl -lib {wildcards.lib}_rnaseq_se_{wildcards.readlim} -readlength 100 -readlimit {wildcards.readlim} -read1 {input} -CPUs {threads} -almosteverything -dbhome {params.db} 2> {log};"
+        "phyloFlash.pl -lib {wildcards.lib}_rnaseq_se_{wildcards.readlim} -readlength 100 -readlimit {wildcards.readlim} -read1 {input} -CPUs {threads} -html -zip -treemap -log -dbhome {params.db} 2> {log};"
         "mv {wildcards.lib}_rnaseq_se_{wildcards.readlim}.phyloFlash* qc/phyloFlash/;"
+
+rule phyloflash_rnaseq_maponly:
+    input:
+        fwd=lambda wildcards: config['rnaseq'][wildcards.lib]['fwd'],
+        rev=lambda wildcards: config['rnaseq'][wildcards.lib]['rev']
+    output:
+        "qc/phyloFlash/{lib}_rnaseq_maponly_{readlim}.phyloFlash.tar.gz"
+    conda: "envs/phyloflash.yml"
+    threads: 16
+    wildcard_constraints: readlim="\d+"
+    log: "logs/phyloflash_rnaseq_maponly.{lib}.{readlim}.log"
+    params:
+        db=PHYLOFLASH_DBHOME
+    shell:
+        "phyloFlash.pl -lib {wildcards.lib}_rnaseq_maponly_{wildcards.readlim} -readlength 150 -readlimit {wildcards.readlim} -skip_spades -read1 {input.fwd} -read2 {input.rev} -CPUs {threads} -html -treemap -log -poscov -zip -dbhome {params.db} 2> {log};"
+        "mv {wildcards.lib}_rnaseq_maponly_{wildcards.readlim}.phyloFlash* qc/phyloFlash/;"
+
+rule phyloflash_rnaseq_se_maponly:
+    input:
+        lambda wildcards: config['rnaseq_se'][wildcards.lib]
+    output:
+        "qc/phyloFlash/{lib}_rnaseq_se_maponly_{readlim}.phyloFlash.tar.gz"
+    conda: "envs/phyloflash.yml"
+    threads: 16
+    wildcard_constraints: readlim="\d+"
+    log: "logs/phyloflash_rnaseq_se_maponly.{lib}.{readlim}.log"
+    params:
+        db=PHYLOFLASH_DBHOME
+    shell:
+        # Do not run -poscov for SE libraries
+        # Use -readlimit 1000000 for transcriptome libraries
+        "phyloFlash.pl -lib {wildcards.lib}_rnaseq_se_maponly_{wildcards.readlim} -readlength 100 -readlimit {wildcards.readlim} -skip_spades -read1 {input} -CPUs {threads} -html -treemap -log -zip -dbhome {params.db} 2> {log};"
+        "mv {wildcards.lib}_rnaseq_se_maponly_{wildcards.readlim}.phyloFlash* qc/phyloFlash/;"
 
 rule phyloflash_dnaseq:
     input:
@@ -105,14 +144,14 @@ rule trinity_fulllength_qc:
     # based on https://github.com/trinityrnaseq/trinityrnaseq/wiki/Counting-Full-Length-Trinity-Transcripts
     # TODO use ciliate proteoms as reference db
     input:
-        assem="assembly/trinity.{lib}.Trinity.fasta",
+        assem="assembly/{prefix}.Trinity.fasta",
         db="db/{dbprefix}.fasta"
     output:
-        blastx="qc/trinity_assem/trinity.{lib}.v.{dbprefix}.blastx.out6",
-        pchitlen="qc/trinity_assem/trinity.{lib}.v.{dbprefix}.blastx.out6.w_pct_hit_length"
+        blastx="qc/trinity_assem/{prefix}.v.{dbprefix}.blastx.out6",
+        pchitlen="qc/trinity_assem/{prefix}.v.{dbprefix}.blastx.out6.w_pct_hit_length"
     threads: 8
     conda: "envs/trinity.yml"
-    log: "logs/trinity_fulllength_qc.{dbprefix}.{lib}.log"
+    log: "logs/trinity_fulllength_qc.{dbprefix}.{prefix}.log"
     params:
         db_prefix="db/{dbprefix}"
     shell:
