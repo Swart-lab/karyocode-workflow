@@ -89,6 +89,15 @@ rnaseq:
   cx01_yy: # Cryptopharynx sp. Sr_ci_Cx01
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513008_1.fastq.gz
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513008_2.fastq.gz
+  smin_yy: # Spirostomum minus
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513010_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10513010_2.fastq.gz
+  cvir_yy: # Climacostomum virens
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512971_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512971_2.fastq.gz
+  cl01_yy: # Climacostomum sp. Sr_ci_Cl01
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512972_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR10512972_2.fastq.gz
   # MMETSP
   cmag_mm: # Condylostoma magnum
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1296902_1.fastq.gz
@@ -99,6 +108,12 @@ rnaseq:
   bjap_mm: # Blepharisma japonicum
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1294460_1.fastq.gz
     rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1294460_2.fastq.gz
+  fsal_mm: # Fabrea salina
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1300445_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1300445_2.fastq.gz
+  cvir_mm: # Climacostomum virens
+    fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1300461_1.fastq.gz
+    rev: /ebio/abt2_projects/ag-swart-karyocode/data/sra/SRR1300461_2.fastq.gz
   # Kentrophoros metatranscriptomes
   sa331_kh:
     fwd: /ebio/abt2_projects/ag-swart-karyocode/data/sra/kentH_sa331_1.fastq.gz

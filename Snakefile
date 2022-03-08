@@ -7,7 +7,7 @@ rule all:
     input:
         expand(
             "qc/phyloFlash/{lib}_rnaseq_{readlim}.phyloFlash.tar.gz",
-            lib=[i for i in config['rnaseq'] if i not in ['kn01_yy','cmag_mm','pard_mm','bjap_mm']], readlim=[1000000]), # skip libraries where SPAdes step fails
+            lib=[i for i in config['rnaseq'] if i not in ['kn01_yy','cmag_mm','pard_mm','bjap_mm','fsal_mm']], readlim=[1000000]), # skip libraries where SPAdes step fails
         expand("qc/phyloFlash/{lib}_rnaseq_maponly_1000000.phyloFlash.tar.gz", lib=config['rnaseq']),
         expand("qc/phyloFlash/{lib}_rnaseq_se_maponly_1000000.phyloFlash.tar.gz", lib=config['rnaseq_se']),
         expand("qc/phyloFlash/{lib}_dnaseq.phyloFlash.tar.gz", lib=config['mda']),
