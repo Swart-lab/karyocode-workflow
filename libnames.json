@@ -1,0 +1,312 @@
+{ 
+    "N72": {
+        "genus": "Anigsteinia",
+        "family": "Spirostomidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code" : 1
+    },
+    "N70": {
+        "genus": "Anigsteinia",
+        "family": "Spirostomidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code" : 1
+    },
+    "anig_yy": {
+        "genus": "Anigsteinia",
+        "family": "Spirostomidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code" : 1
+    },
+
+    "N44": {
+        "genus": "Remanella",
+        "family": "Loxodidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "N5": {
+        "genus": "Remanella",
+        "family": "Loxodidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "N4": {
+        "genus": "Remanella",
+        "family": "Loxodidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "rema_yy": {
+        "genus": "Remanella",
+        "family": "Loxodidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "lstr_yy": {
+        "genus": "Loxodes",
+        "family": "Loxodidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "lx13_yy": {
+        "genus": "Loxodes",
+        "family": "Loxodidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "lstr2_yy": {
+        "genus": "Loxodes",
+        "family": "Loxodidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "lx11_yy": {
+        "genus": "Loxodes",
+        "family": "Loxodidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+
+    "N38": {
+        "genus": "cf_Trachelocerca",
+        "family": "Trachelocercidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "N34": {
+        "genus": "cf_Trachelocerca",
+        "family": "Trachelocercidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "N27": {
+        "genus": "cf_Trachelocerca",
+        "family": "Trachelocercidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "N26": {
+        "genus": "cf_Trachelocerca",
+        "family": "Trachelocercidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "trac_yy": {
+        "genus": "cf_Trachelocerca",
+        "family": "Trachelocercidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "tc01_yy": {
+        "genus": "cf_Trachelocerca",
+        "family": "Trachelocercidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+
+    "N10": {
+        "genus": "Kentrophoros",
+        "family": "Kentrophoridae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "kn01_yy": {
+        "genus": "Kentrophoros",
+        "family": "Kentrophoridae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "sa331_kh": {
+        "genus": "Kentrophoros",
+        "family": "Kentrophoridae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "sa332_kh": {
+        "genus": "Kentrophoros",
+        "family": "Kentrophoridae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "s4110_ksd": {
+        "genus": "Kentrophoros",
+        "family": "Kentrophoridae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "s4111_ksd": {
+        "genus": "Kentrophoros",
+        "family": "Kentrophoridae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "s4112_ksd": {
+        "genus": "Kentrophoros",
+        "family": "Kentrophoridae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+
+    "gsin_yy": {
+        "genus": "Geleia",
+        "family": "Geleiidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "gacu_yy": {
+        "genus": "Geleia",
+        "family": "Geleiidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "gl04_yy": {
+        "genus": "Geleia",
+        "family": "Geleiidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "gsin2_yy": {
+        "genus": "Geleia",
+        "family": "Geleiidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+    "pard_mm": {
+        "genus": "Parduczia",
+        "family": "Geleiidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+
+    "cx01_yy": {
+        "genus": "Cryptopharynx",
+        "family": "Cryptopharyngidae",
+        "class" : "Karyorelictea",
+        "stop_set": "TGA",
+        "code" : 27
+    },
+
+    "bame_yy": {
+        "genus": "Blepharisma",
+        "family": "Blepharismidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TAA_TAG",
+        "code" : 4
+    },
+    "bame2_yy": {
+        "genus": "Blepharisma",
+        "family": "Blepharismidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TAA_TAG",
+        "code" : 4
+    },
+    "bjap_mm": {
+        "genus": "Blepharisma",
+        "family": "Blepharismidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TAA_TAG",
+        "code" : 4
+    },
+    "bsp_mk" :  {
+        "genus": "Blepharisma",
+        "family": "Blepharismidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TAA_TAG",
+        "code" : 4
+    },
+    "smin_yy": {
+        "genus" : "Spirostomum",
+        "family" : "Spirostomidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code": 1
+    },
+    "cvir_yy": {
+        "genus": "Climacostomum",
+        "family": "Climacostomidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code": 1
+    },
+    "cl01_yy": {
+        "genus": "Climacostomum",
+        "family": "Climacostomidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code": 1
+    },
+    "cvir_mm": {
+        "genus": "Climacostomum",
+        "family": "Climacostomidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code": 1
+    },
+    "fsal_mm": {
+        "genus" : "Fabrea",
+        "family": "Fabreidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code": 1
+    },
+    "sroe_yy": {
+        "genus": "Stentor",
+        "family": "Stentoridae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code" : 1
+    },
+    "spol_upp": {
+        "genus": "Stentor",
+        "family": "Stentoridae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code" : 1
+    },
+    "cmag_mm": {
+        "genus": "Condylostoma",
+        "family": "Condylostomidae",
+        "class" : "Heterotrichea",
+        "stop_set": "TGA_TAA_TAG",
+        "code" : 28
+    },
+
+    "N39": {
+        "genus": "Other",
+        "family": "Other",
+        "class" : "Other"
+    },
+    "N6": {
+        "genus": "Other",
+        "family": "Other",
+        "class" : "Other"}
+}
