@@ -12,10 +12,24 @@ rule all:
         expand("qc/phyloFlash/{lib}_rnaseq_se_maponly_1000000.phyloFlash.tar.gz", lib=config['rnaseq_se']),
         expand("qc/phyloFlash/{lib}_dnaseq.phyloFlash.tar.gz", lib=config['mda']),
         expand("assembly/trinity.{lib}.Trinity.fasta", lib=config['rnaseq']),
+        expand("qc/barrnap/trinity.{lib}.barrnap.fasta", lib=config['rnaseq']),
         expand("qc/trinity_assem/trinity.{lib}.v.{dbprefix}.blastx.out6.w_pct_hit_length", lib=config['rnaseq'], dbprefix=['uniprot_sprot','bsto_mac']),
         "assembly/trinity_gg.bsto.Trinity-GG.fasta", # genome-guided assembly
         "assembly/trinity_se.bsp_mk.Trinity.fasta",    # single-end read library
         "qc/trinity_assem/trinity_se.bsp_mk.v.bsto_mac.blastx.out6.w_pct_hit_length",    # single-end read library
+
+
+rule barrnap_trinity:
+    input: "assembly/trinity.{lib}.Trinity.fasta"
+    output:
+        gff="qc/barrnap/trinity.{lib}.barrnap.gff3",
+        fasta="qc/barrnap/trinity.{lib}.barrnap.fasta"
+    conda: "envs/barrnap.yml"
+    threads: 4
+    shell:
+        r"""
+        barrnap --threads {threads} --kingdom euk --outseq {output.fasta} < {input} > {output.gff}
+        """
 
 rule phyloflash_rnaseq:
     input:
